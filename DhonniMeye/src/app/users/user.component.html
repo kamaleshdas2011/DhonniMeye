@@ -1,0 +1,21 @@
+<div>
+    <table *ngIf="user" class="table table-bordered table-responsive">
+        <caption>Employee Details</caption>
+        <tbody>
+            <tr>
+                <td>First Name</td>
+                <td>{{user.firstName}}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{user.gender}}</td>
+            </tr>
+                       
+        </tbody>
+    </table>
+    <div *ngIf="!user">
+        {{serviceStatus}}
+    </div>
+    
+</div>
+<button class="btn btn-primary" routerLink="/home">Back to home</button>
