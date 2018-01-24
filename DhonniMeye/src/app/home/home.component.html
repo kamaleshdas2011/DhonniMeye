@@ -1,0 +1,9 @@
+<div class="container">
+    <div *ngIf="user">
+        <h1>You are signed in. See your account</h1>
+        <span><a routerLink="/user"><img class="img-circle" src="./app/images/img_avatar2.png"></a></span>
+        <button (click)="logout()" style="width:auto;" class="btn btn-primary">Logout</button>
+    </div>
+    <button *ngIf="!user" (click)="loginClick()" style="width:auto;">Login</button>    
+    <user-login></user-login>
+</div>

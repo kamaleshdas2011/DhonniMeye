@@ -5,7 +5,7 @@ import{UserService} from './user.service';
 @Component({
     selector: 'user',
     templateUrl: 'app/users/user.component.html',
-    providers:[UserService]
+    //providers:[UserService]
 })
 
 export class UserComponent implements OnInit{
@@ -13,19 +13,20 @@ export class UserComponent implements OnInit{
     serviceStatus: string = "Loading data. Please wait.";
 
     constructor(private _service:UserService){
-        this._service.getUserByCode('kamalesh').subscribe(
-            (userData) => {
-                if (userData == null) {
-                    this.serviceStatus = "user does not exists.";
-                }
-                else {
-                    this.user = userData;
-                }
-            },
-            (error) => {
-                this.serviceStatus = "Error occurred, please try again."
-            }
-        );
+        this.user = this._service.getUser();
+        // this._service.getUserByCode('kamalesh').subscribe(
+        //     (userData) => {
+        //         if (userData == null) {
+        //             this.serviceStatus = "user does not exists.";
+        //         }
+        //         else {
+        //             this.user = userData;
+        //         }
+        //     },
+        //     (error) => {
+        //         this.serviceStatus = "Error occurred, please try again."
+        //     }
+        // );
     }
     ngOnInit(): void{
 

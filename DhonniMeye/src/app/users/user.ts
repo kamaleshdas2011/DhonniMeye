@@ -1,6 +1,10 @@
 export class User{
-    firstName:string;
-    lastName:string;
-    gender:string;   
-    code:string; 
+
+    constructor(
+    public firstName:string,
+    public lastName:string,
+    public gender:string, 
+    public code:string,
+    public userName:string,
+){}
 }

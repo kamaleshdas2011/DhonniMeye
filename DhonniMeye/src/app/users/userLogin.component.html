@@ -1,0 +1,55 @@
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
+<div id="id01" class="modal">
+  
+    <form class="modal-content animate" novalidate (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="./app/images/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+  
+      <div class="container">        
+          <div class="form-group"
+          [ngClass]="{'has-error':(loginForm.get('username').touched || loginForm.get('username').dirty)
+          && !loginForm.get('username').valid }">
+
+          <label>Username</label>
+        <input type="text" placeholder="Email or Phone" formControlName="username" required>
+        <span class="help-block" *ngIf="(loginForm.get('username').touched || loginForm.get('username').dirty) &&
+        loginForm.get('username').errors">
+           <span *ngIf="loginForm.get('username').errors.required">
+               Please enter your username.
+           </span>           
+       </span>         
+        
+     </div>
+        
+  
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Password" formControlName="password" required>
+        <span class="help-block" *ngIf="(loginForm.get('password').touched || loginForm.get('password').dirty) &&
+        loginForm.get('password').errors">
+           <span *ngIf="loginForm.get('password').errors.required">
+               Please enter password
+           </span>           
+       </span>
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <!-- <label>
+          <input type="checkbox" checked="checked"> Remember me
+        </label> -->
+      </div>      
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
